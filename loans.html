@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loans - Sri Mukkanneshwara Associate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        if (!sessionStorage.getItem('isAuthenticated')) {
+            sessionStorage.setItem('returnUrl', window.location.href);
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Sri Mukkanneshwara Associate</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="login.html">Accounts</a></li>
+                <li><a href="meetings.html">Meetings</a></li>
+                <li><a href="rules.html">Rules</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="loans-section">
+            <div class="header-with-nav">
+                <a href="accounts.html" class="nav-button back-nav-button">
+                    <i class="fas fa-arrow-left nav-arrow"></i>
+                    <i class="fas fa-user nav-icon"></i>
+                    <span class="nav-text">Back to Account</span>
+                </a>
+                
+                <h2 class="page-title"><i class="fas fa-hand-holding-usd"></i> Loans</h2>
+                
+                <a href="deposits.html" class="nav-button">
+                    <i class="fas fa-piggy-bank nav-icon"></i>
+                    <span class="nav-text">View Deposits</span>
+                    <i class="fas fa-arrow-right nav-arrow"></i>
+                </a>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="info-card summary-card">
+                <h3>Loan Summary 2025-26</h3>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <span class="summary-label">Total Active Loans</span>
+                        <span class="summary-value">₹6,20,000</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Number of Members with Active Loans</span>
+                        <span class="summary-value">5</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Year Links Section -->
+            <div class="info-card">
+                <h3>Yearly Records</h3>
+                <div class="year-links">
+                    <a href="loans-2021.html" class="year-link">
+                        <span class="year">2021-2022</span>
+                        <span class="details">First Year Records</span>
+                    </a>
+                    <a href="loans-2022.html" class="year-link">
+                        <span class="year">2022-2023</span>
+                        <span class="details">Second Year Records</span>
+                    </a>
+                    <a href="loans-2023.html" class="year-link">
+                        <span class="year">2023-2024</span>
+                        <span class="details">Third Year Records</span>
+                    </a>
+                    <a href="loans-2024.html" class="year-link current-year">
+                        <span class="year">2024-2025</span>
+                        <span class="details">Fourth Year Records</span>
+                        <span class="active-badge">Active</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Note Section moved to bottom -->
+            <div class="info-card note-card">
+                <div class="important-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Note: All records and calculations shown are up to the Annual Meeting (December 2024). Updates will be made after the meeting.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sri Mukkanneshwara Associate. All rights reserved.</p>
+    </footer>
+</body>
+</html>

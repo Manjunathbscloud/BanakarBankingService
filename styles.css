@@ -56,7 +56,7 @@ nav ul li a:hover {
 
 main {
     max-width: 1200px;
-    margin: 2rem auto;
+    margin: 80px auto 2rem auto;
     padding: 0 2rem;
     margin-bottom: 100px;
 }
@@ -1894,6 +1894,10 @@ html {
     .action-buttons {
         flex-direction: column;
     }
+    
+    .apply-loan-btn, .view-loans-btn {
+        width: 100%;
+    }
 }
 
 /* Loan Application Form Styles */
@@ -2546,4 +2550,63 @@ html {
     margin-top: 0.5rem;
     font-size: 0.9rem;
     display: none;
+}
+
+/* User Profile Header Styles */
+.user-profile-header {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: none;
+    align-items: center;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.user-profile-header.visible {
+    display: flex;
+}
+
+.user-profile-header .profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.user-profile-header .profile-info {
+    margin-right: 15px;
+}
+
+.user-profile-header .user-name {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.user-profile-header .user-role {
+    color: var(--primary);
+    margin: 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.user-profile-header .logout-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.user-profile-header .logout-btn:hover {
+    background: #c82333;
 }

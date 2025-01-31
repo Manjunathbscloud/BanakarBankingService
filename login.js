@@ -6,7 +6,8 @@ const memberDatabase = {
         name: 'Manjunath Banakar',
         role: 'president',
         email: 'manjunath.banakar@gmail.com',
-        phone: '+919591382942'
+        phone: '+919591382942',
+        imageId: '001'
     },
     'PB002': {  // Pratap Banakar
         id: 'PB002',
@@ -14,7 +15,8 @@ const memberDatabase = {
         name: 'Pratap Banakar',
         role: 'vice-president',
         email: 'pratap.banakar@gmail.com',
-        phone: '+917259907409'
+        phone: '+917259907409',
+        imageId: '002'
     },
     'SB003': {  // Sarpabhushana Banakar
         id: 'SB003',
@@ -22,7 +24,8 @@ const memberDatabase = {
         name: 'Sarpabhushana Banakar',
         role: 'member',
         email: 'sarpabhushana.banakar@gmail.com',
-        phone: '+919740373454'
+        phone: '+919740373454',
+        imageId: '003'
     },
     'MB004': {  // Mukkanna Banakar
         id: 'MB004',
@@ -30,7 +33,8 @@ const memberDatabase = {
         name: 'Mukkanna Banakar',
         role: 'member',
         email: 'mukkanna.banakar@gmail.com',
-        phone: '+918618600807'
+        phone: '+918618600807',
+        imageId: '004'
     },
     'SB005': {  // Santosh Banakar
         id: 'SB005',
@@ -38,7 +42,8 @@ const memberDatabase = {
         name: 'Santosh Banakar',
         role: 'member',
         email: 'santosh.banakar@gmail.com',
-        phone: '+919739678816'
+        phone: '+919739678816',
+        imageId: '005'
     },
     'PB006': {  // Pradeep Banakar
         id: 'PB006',
@@ -46,7 +51,8 @@ const memberDatabase = {
         name: 'Pradeep Banakar',
         role: 'member',
         email: 'pradeep.banakar@gmail.com',
-        phone: '+919663644751'
+        phone: '+919663644751',
+        imageId: '006'
     },
     'PB007': {  // Praveen Banakar
         id: 'PB007',
@@ -54,7 +60,8 @@ const memberDatabase = {
         name: 'Praveen Banakar',
         role: 'member',
         email: 'praveen.banakar@gmail.com',
-        phone: '+919538913204'
+        phone: '+919538913204',
+        imageId: '007'
     }
 };
 
@@ -92,6 +99,7 @@ document.getElementById('loginForm')?.addEventListener('submit', function(e) {
         sessionStorage.setItem('memberId', member.id);
         sessionStorage.setItem('userRole', member.role);
         sessionStorage.setItem('userPhone', member.phone);
+        sessionStorage.setItem('imageId', member.imageId);
         
         showUserDashboard();
     } else {

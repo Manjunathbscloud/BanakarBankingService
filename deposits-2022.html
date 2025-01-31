@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- User Profile Header -->
+    <div id="userProfileHeader" class="user-profile-header">
+        <div class="member-avatar">
+            <img id="headerProfileImg" alt="Profile" class="profile-image">
+            <i class="fas fa-user-circle" style="display: none;"></i>
+        </div>
+        <div class="profile-info">
+            <p id="headerUserName" class="user-name"></p>
+            <p id="headerUserRole" class="user-role"></p>
+        </div>
+        <button id="headerLogoutBtn" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </div>
+
     <script>
         if (!sessionStorage.getItem('isAuthenticated')) {
             window.location.href = 'login.html';
@@ -108,5 +124,6 @@
     <footer>
         <p>&copy; 2024 Sri Mukkanneshwara Associate. All rights reserved.</p>
     </footer>
+    <script src="userProfile.js"></script>
 </body>
 </html>

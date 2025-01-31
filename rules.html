@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- User Profile Header -->
+    <div id="userProfileHeader" class="user-profile-header">
+        <div class="member-avatar">
+            <img id="headerProfileImg" alt="Profile" class="profile-image">
+            <i class="fas fa-user-circle" style="display: none;"></i>
+        </div>
+        <div class="profile-info">
+            <p id="headerUserName" class="user-name"></p>
+            <p id="headerUserRole" class="user-role"></p>
+        </div>
+        <button id="headerLogoutBtn" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </div>
+
     <header>
         <h1>Sri Mukkanneshwara Associate</h1>
         <nav>
@@ -82,5 +98,6 @@
     <footer>
         <p>&copy; 2024 Sri Mukkanneshwara Associate. All rights reserved.</p>
     </footer>
+    <script src="userProfile.js"></script>
 </body>
 </html>

@@ -10,49 +10,62 @@
 <body>
     <header>
         <h1>Sri Mukkanneshwara Associate</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="meetings.html">Meetings</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section class="login-section">
-            <div class="back-nav">
-                <a href="index.html" class="back-button">
-                    <i class="fas fa-arrow-left"></i>
-                    Back to Home
-                </a>
+        <div class="auth-container">
+            <!-- Login Form Section -->
+            <div id="loginSection" class="auth-form-container">
+                <h2><i class="fas fa-user-lock"></i> Member Login</h2>
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="username"><i class="fas fa-user"></i> Member ID</label>
+                        <input type="text" id="username" placeholder="Enter your Member ID (e.g., MB001)" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><i class="fas fa-key"></i> Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <p id="errorMessage" class="error-message"></p>
+                    <button type="submit" id="loginBtn" class="auth-button">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
             </div>
 
-            <div class="login-container">
-                <h2 class="page-title">
-                    <i class="fas fa-user-lock"></i>
-                    Member Login
-                </h2>
-                <div class="login-form">
-                    <div class="form-group">
-                        <label for="username">
-                            <i class="fas fa-user"></i> Username
-                        </label>
-                        <input type="text" id="username" placeholder="Enter your username">
+            <!-- User Dashboard Section (Hidden by default) -->
+            <div id="userDashboard" class="user-dashboard">
+                <div class="user-profile">
+                    <i class="fas fa-user-circle profile-icon"></i>
+                    <h2 id="welcomeMessage">Welcome</h2>
+                    <p id="userRole" class="user-role"></p>
+                    <div class="user-details">
+                        <p><i class="fas fa-envelope"></i> Email: <span id="userEmail"></span></p>
+                        <p><i class="fas fa-phone"></i> Phone: <span id="userPhone"></span></p>
+                        <p><i class="fas fa-id-badge"></i> Member ID: <span id="memberId"></span></p>
                     </div>
-                    <div class="form-group">
-                        <label for="password">
-                            <i class="fas fa-key"></i> Password
-                        </label>
-                        <input type="password" id="password" placeholder="Enter your password">
-                    </div>
-                    <div class="form-group">
-                        <button id="loginBtn" class="login-btn">
-                            <i class="fas fa-sign-in-alt"></i> Login
-                        </button>
-                    </div>
-                    <div id="errorMessage" class="error-message"></div>
+                </div>
+
+                <div class="dashboard-actions">
+                    <a href="accounts.html" class="dashboard-btn">
+                        <i class="fas fa-university"></i> Account Section
+                    </a>
+                    <button id="logoutBtn" class="dashboard-btn logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
-
-    <footer>
-        <p>&copy; 2024 Sri Mukkanneshwara Associate. All rights reserved.</p>
-    </footer>
 
     <script src="login.js"></script>
 </body>

@@ -1,7 +1,7 @@
 // Member database with credentials
 const memberDatabase = {
     'MB001': {  // Manjunath Banakar
-        id: '001',
+        id: 'MB001',
         password: 'mb001',  // You should use more secure passwords
         name: 'Manjunath Banakar',
         role: 'president',
@@ -9,7 +9,7 @@ const memberDatabase = {
         phone: '+919591382942'
     },
     'PB002': {  // Pratap Banakar
-        id: '002',
+        id: 'PB002',
         password: 'pb002',
         name: 'Pratap Banakar',
         role: 'vice-president',
@@ -17,7 +17,7 @@ const memberDatabase = {
         phone: '+917259907409'
     },
     'SB003': {  // Sarpabhushana Banakar
-        id: '003',
+        id: 'SB003',
         password: 'sb003',
         name: 'Sarpabhushana Banakar',
         role: 'member',
@@ -25,7 +25,7 @@ const memberDatabase = {
         phone: '+919740373454'
     },
     'MB004': {  // Mukkanna Banakar
-        id: '004',
+        id: 'MB004',
         password: 'mb004',
         name: 'Mukkanna Banakar',
         role: 'member',
@@ -33,7 +33,7 @@ const memberDatabase = {
         phone: '+918618600807'
     },
     'SB005': {  // Santosh Banakar
-        id: '005',
+        id: 'SB005',
         password: 'sb005',
         name: 'Santosh Banakar',
         role: 'member',
@@ -41,7 +41,7 @@ const memberDatabase = {
         phone: '+919739678816'
     },
     'PB006': {  // Pradeep Banakar
-        id: '006',
+        id: 'PB006',
         password: 'pb006',
         name: 'Pradeep Banakar',
         role: 'member',
@@ -49,7 +49,7 @@ const memberDatabase = {
         phone: '+919663644751'
     },
     'PB007': {  // Praveen Banakar
-        id: '007',
+        id: 'PB007',
         password: 'pb007',
         name: 'Praveen Banakar',
         role: 'member',
@@ -58,8 +58,23 @@ const memberDatabase = {
     }
 };
 
+// Check if user is already logged in when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    checkLoginStatus();
+});
+
+// Function to check login status
+function checkLoginStatus() {
+    const isAuthenticated = sessionStorage.getItem('isAuthenticated');
+    if (isAuthenticated === 'true') {
+        showUserDashboard();
+    } else {
+        showLoginForm();
+    }
+}
+
 // Handle login form submission
-document.getElementById('loginBtn').addEventListener('click', function(e) {
+document.getElementById('loginForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
     
     const username = document.getElementById('username').value;
@@ -75,31 +90,64 @@ document.getElementById('loginBtn').addEventListener('click', function(e) {
         sessionStorage.setItem('userEmail', member.email);
         sessionStorage.setItem('userName', member.name);
         sessionStorage.setItem('memberId', member.id);
+        sessionStorage.setItem('userRole', member.role);
+        sessionStorage.setItem('userPhone', member.phone);
         
-        // Set president status if applicable
-        if (member.role === 'president') {
-            sessionStorage.setItem('isPresident', 'true');
-        } else {
-            sessionStorage.setItem('isPresident', 'false');
-        }
-
-        // Redirect to accounts page
-        const returnUrl = sessionStorage.getItem('returnUrl');
-        if (returnUrl) {
-            sessionStorage.removeItem('returnUrl');
-            window.location.href = returnUrl;
-        } else {
-            window.location.href = 'accounts.html';
-        }
+        showUserDashboard();
     } else {
-        errorMessage.textContent = 'Invalid username or password';
+        errorMessage.textContent = 'Invalid Member ID or password';
+        errorMessage.style.display = 'block';
     }
 });
 
-// Clear error message when typing
-document.getElementById('username').addEventListener('input', clearError);
-document.getElementById('password').addEventListener('input', clearError);
-
-function clearError() {
-    document.getElementById('errorMessage').textContent = '';
+// Show login form
+function showLoginForm() {
+    const loginSection = document.getElementById('loginSection');
+    const userDashboard = document.getElementById('userDashboard');
+    
+    if (loginSection) loginSection.style.display = 'block';
+    if (userDashboard) userDashboard.style.display = 'none';
 }
+
+// Show user dashboard
+function showUserDashboard() {
+    const loginSection = document.getElementById('loginSection');
+    const userDashboard = document.getElementById('userDashboard');
+    const welcomeMessage = document.getElementById('welcomeMessage');
+    const userRole = document.getElementById('userRole');
+    const userEmail = document.getElementById('userEmail');
+    const userPhone = document.getElementById('userPhone');
+    const memberId = document.getElementById('memberId');
+
+    // Hide login form and show dashboard
+    if (loginSection) loginSection.style.display = 'none';
+    if (userDashboard) userDashboard.style.display = 'block';
+
+    // Update user information
+    if (welcomeMessage) welcomeMessage.textContent = `Welcome, ${sessionStorage.getItem('userName')}`;
+    if (userRole) userRole.textContent = sessionStorage.getItem('userRole').toUpperCase();
+    if (userEmail) userEmail.textContent = sessionStorage.getItem('userEmail');
+    if (userPhone) userPhone.textContent = sessionStorage.getItem('userPhone');
+    if (memberId) memberId.textContent = sessionStorage.getItem('memberId');
+}
+
+// Handle logout
+document.getElementById('logoutBtn')?.addEventListener('click', function() {
+    // Clear session storage
+    sessionStorage.clear();
+    // Show login form
+    showLoginForm();
+});
+
+// Clear error message when typing
+function clearError() {
+    const errorMessage = document.getElementById('errorMessage');
+    if (errorMessage) {
+        errorMessage.textContent = '';
+        errorMessage.style.display = 'none';
+    }
+}
+
+// Add event listeners for clearing error message
+document.getElementById('username')?.addEventListener('input', clearError);
+document.getElementById('password')?.addEventListener('input', clearError);
